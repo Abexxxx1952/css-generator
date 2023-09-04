@@ -1,13 +1,24 @@
-body {
+:root {
+  --rangeSliderPrimaryColor: rgb(64, 52, 129);
+  --rangeSliderSecondaryColor: rgb(202, 198, 221);
+  --checkBoxPrimaryBackgroundColor: rgb(113, 170, 162);
+  --backgroundLeftSection: rgb(165, 162, 212);
+  --backgroundRightSection: rgb(160, 195, 228);
+  --elementBoxColor: rgb(255, 0, 128);
+  --dropDownPrimaryColor: rgb(151, 109, 206);
+  --dropDownSecondaryColor: rgb(182, 183, 228);
+}
+
+* {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  padding: 0;
+  box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }

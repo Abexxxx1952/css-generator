@@ -1,0 +1,81 @@
+.gradientPicker {
+  position: relative;
+  margin: 1.3rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+}
+
+.gradientPicker > h3 {
+  position: absolute;
+  font-size: 14px;
+  top: -0.5rem;
+  left: 2rem;
+}
+
+.dropDown {
+  margin: 1.5rem;
+}
+
+.rangeSlider {
+  width: 100%;
+}
+
+.color {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 1rem;
+  position: relative;
+}
+.color h3 {
+  position: absolute;
+  top: -1.5rem;
+  left: 10.3rem;
+  font-size: 14px;
+}
+
+.alphaPicker {
+  margin: 1.5rem;
+}
+
+@media screen and (max-width: 1300px) {
+  .color h3 {
+    left: 8rem;
+  }
+}
+@media screen and (max-width: 1000px) {
+  .color h3 {
+    left: 6rem;
+  }
+}
+
+@media screen and (max-width: 910px) {
+  .gradientPicker > h3 {
+    font-size: 12px;
+    top: -0.5rem;
+    left: 1.5rem;
+  }
+  .rangeSlider {
+    position: relative;
+    left: -0.3rem;
+  }
+}
+
+@media screen and (max-width: 740px) {
+  .gradientPicker > h3 {
+    font-size: 11px;
+    top: -0.5rem;
+    left: 1.5rem;
+  }
+  .rangeSlider {
+    position: relative;
+    left: -0.5rem;
+  }
+  .color h3 {
+    left: 4rem;
+  }
+}

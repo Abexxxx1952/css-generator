@@ -1,0 +1,41 @@
+.colorPicker {
+  position: relative;
+  margin: 1.3rem;
+  box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.342);
+}
+
+.colorPicker h3 {
+  position: absolute;
+  font-size: 14px;
+  top: -1.5rem;
+}
+
+.colorPicker .react-colorful {
+  width: 250px;
+  height: 80px;
+}
+.colorPicker .react-colorful__hue {
+  height: 15px;
+}
+.colorPicker .react-colorful__pointer {
+  height: 15px;
+  width: 15px;
+}
+.colorPicker .react-colorful__hue-pointer {
+  height: 15px;
+  width: 15px;
+}
+
+@media screen and (max-width: 910px) {
+  .colorPicker .react-colorful {
+    width: 200px;
+    height: 75px;
+  }
+}
+
+@media screen and (max-width: 730px) {
+  .colorPicker .react-colorful {
+    width: 150px;
+    height: 70px;
+  }
+}

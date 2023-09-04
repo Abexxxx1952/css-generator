@@ -1,0 +1,58 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  position: fixed;
+  top: 100px;
+}
+
+.element {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 250px;
+  width: 250px;
+  background-color: var(--elementBoxColor);
+
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.cssCode {
+  width: 600px;
+  max-height: 300px;
+  overflow-y: auto;
+  margin: 80px auto 10px;
+  background: #eee;
+  padding: 15px;
+  font-size: 16px;
+  border-radius: 10px;
+  min-height: 60px;
+}
+
+@media screen and (max-width: 910px) {
+  .cssCode {
+    width: 470px;
+  }
+  .element {
+    height: 200px;
+    width: 200px;
+
+    font-size: 20px;
+  }
+}
+
+@media screen and (max-width: 730px) {
+  .cssCode {
+    width: 350px;
+
+    font-size: 14px;
+  }
+  .element {
+    height: 170px;
+    width: 170px;
+
+    font-size: 18px;
+  }
+}
