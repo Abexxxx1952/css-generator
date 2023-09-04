@@ -1,6 +1,6 @@
 import { FC } from "react";
 import { HexColorPicker } from "react-colorful";
-import { ToolsProps, OnePropertyValueType } from "../Tools";
+import { ToolsProps, OnePropertyValueType } from "../../page/Tools";
 import { COLORPICKER } from "../../constants/constants";
 import { setActiveToFalse } from "../../utils/setActiveToFalse";
 

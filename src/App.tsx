@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { Tools } from "./components/Tools";
+import { Tools } from "./page/Tools";
 
 import style from "./App.module.css";
 

@@ -1,6 +1,6 @@
 import { useState, FC, useRef } from "react";
 import { useOutsideClick } from "../../../hooks/useOutsideClick";
-import { cssPropertyType } from "../../Tools";
+import { cssPropertyType } from "../../../page/Tools";
 import "./styles.css";
 
 type DropDownList = {

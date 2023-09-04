@@ -1,13 +1,17 @@
 import { FC } from "react";
-import { cssPropertyType } from "../Tools";
+import { cssPropertyType, FigureType } from "../../page/Tools";
 import { hexToRgb } from "../../utils/hexToRGB";
 import styles from "./styles.module.css";
 
 type ElementBoxPropsType = {
   cssPropertyValue: cssPropertyType;
+  figure: FigureType;
 };
 
-export const ElementBox: FC<ElementBoxPropsType> = ({ cssPropertyValue }) => {
+export const ElementBox: FC<ElementBoxPropsType> = ({
+  cssPropertyValue,
+  figure,
+}) => {
   let borderRadius!: string | undefined;
   let boxColor!: { value: string | undefined; active: boolean };
   let textColor!: string | undefined;
@@ -223,6 +227,19 @@ export const ElementBox: FC<ElementBoxPropsType> = ({ cssPropertyValue }) => {
       }`
     : "";
 
+  /* -------------------clip-path---------------- */
+
+  const polygon =
+    figure === "Triangle"
+      ? "polygon(50% 0, 0 80%, 100% 80%)"
+      : figure === "Square"
+      ? ""
+      : figure === "Pentagon"
+      ? "polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%)"
+      : figure === "Polygon"
+      ? "polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)"
+      : "";
+
   return (
     <div className={styles.container}>
       <div
@@ -233,6 +250,7 @@ export const ElementBox: FC<ElementBoxPropsType> = ({ cssPropertyValue }) => {
           boxShadow: boxShadow,
           textShadow: textShadow,
           transform: transform,
+          clipPath: polygon,
         }}
         className={styles.element}
       >

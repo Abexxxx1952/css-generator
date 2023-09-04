@@ -1,6 +1,6 @@
 import { FC } from "react";
 
-import { ToolsProps, OnePropertyValueType } from "../Tools";
+import { ToolsProps, OnePropertyValueType } from "../../page/Tools";
 import { CHECKBOX } from "../../constants/constants";
 import styles from "./styles.module.css";
 

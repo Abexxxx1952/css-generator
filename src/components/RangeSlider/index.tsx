@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 
-import { ToolsProps, OnePropertyValueType } from "../Tools";
+import { ToolsProps, OnePropertyValueType } from "../../page/Tools";
 import { RANGESLIDER } from "../../constants/constants";
 import styles from "./styles.module.css";
 

@@ -1,10 +1,11 @@
 import React, { FC, useState } from "react";
-
-import { RangeSlider } from "../RangeSlider";
-import { ColorPicker } from "../ColorPicker";
-import { CheckBox } from "../CheckBox";
-import { GradientPicker } from "../GradientPicker";
-import { ElementBox } from "../ElementBox";
+import { GeometricFigure } from "../../components/GeometricFigure";
+import { Favorite } from "../../components/Favorite";
+import { RangeSlider } from "../../components/RangeSlider";
+import { ColorPicker } from "../../components/ColorPicker";
+import { CheckBox } from "../../components/CheckBox";
+import { GradientPicker } from "../../components/GradientPicker";
+import { ElementBox } from "../../components/ElementBox";
 import {
   cssProperty,
   COLORPICKER,
@@ -37,11 +38,13 @@ export type ToolsProps = {
   allProperty: cssPropertyType;
   customProperty?: CustomProperty;
 };
+export type FigureType = "Pentagon" | "Polygon" | "Triangle" | "Square" | "";
+export type SetFigureType = React.Dispatch<React.SetStateAction<FigureType>>;
 
 export const Tools: FC = () => {
   const [cssPropertyValue, setCssPropertyValue] =
     useState<cssPropertyType>(cssProperty);
-
+  const [figure, setFigure] = useState<FigureType>("");
   return (
     <article className={styles.container}>
       <section className={styles.tools_container}>
@@ -185,7 +188,9 @@ export const Tools: FC = () => {
       </section>
 
       <section className={styles.element_container}>
-        <ElementBox cssPropertyValue={cssPropertyValue} />
+        <GeometricFigure setFigure={setFigure} />
+        <Favorite cssPropertyValue={cssPropertyValue} figure={figure} />
+        <ElementBox cssPropertyValue={cssPropertyValue} figure={figure} />
       </section>
     </article>
   );

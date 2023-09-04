@@ -3,7 +3,7 @@ import { DropDown } from "./DropDown";
 import { RangeSlider } from "../RangeSlider";
 import { HuePicker, ColorResult, AlphaPicker } from "react-color";
 
-import { ToolsProps, OnePropertyValueType } from "../Tools";
+import { ToolsProps, OnePropertyValueType } from "../../page/Tools";
 import { GRADIENTPICKER } from "../../constants/constants";
 import { useMediaQuery } from "../../hooks/useMediaQuery";
 import { setActiveToFalse } from "../../utils/setActiveToFalse";

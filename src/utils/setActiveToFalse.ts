@@ -1,4 +1,4 @@
-import { cssPropertyType } from "../components/Tools";
+import { cssPropertyType } from "../page/Tools";
 
 export const setActiveToFalse = (
   allProperty: cssPropertyType,
