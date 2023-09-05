@@ -1,6 +1,8 @@
 import React, { FC, useState } from "react";
+import { createPortal } from "react-dom";
 import { GeometricFigure } from "../../components/GeometricFigure";
 import { Favorite } from "../../components/Favorite";
+import { Modal } from "../../components/Modal";
 import { RangeSlider } from "../../components/RangeSlider";
 import { ColorPicker } from "../../components/ColorPicker";
 import { CheckBox } from "../../components/CheckBox";
@@ -38,13 +40,16 @@ export type ToolsProps = {
   allProperty: cssPropertyType;
   customProperty?: CustomProperty;
 };
-export type FigureType = "Pentagon" | "Polygon" | "Triangle" | "Square" | "";
+export type FigureType = "Pentagon" | "Polygon" | "Triangle" | "Square";
 export type SetFigureType = React.Dispatch<React.SetStateAction<FigureType>>;
+export type setModalOpenType = React.Dispatch<React.SetStateAction<boolean>>;
 
 export const Tools: FC = () => {
   const [cssPropertyValue, setCssPropertyValue] =
     useState<cssPropertyType>(cssProperty);
-  const [figure, setFigure] = useState<FigureType>("");
+  const [figure, setFigure] = useState<FigureType>("Square");
+  const [modalOpen, setModalOpen] = useState(false);
+
   return (
     <article className={styles.container}>
       <section className={styles.tools_container}>
@@ -189,7 +194,15 @@ export const Tools: FC = () => {
 
       <section className={styles.element_container}>
         <GeometricFigure setFigure={setFigure} />
-        <Favorite cssPropertyValue={cssPropertyValue} figure={figure} />
+        <Favorite
+          cssPropertyValue={cssPropertyValue}
+          figure={figure}
+          setModalOpen={setModalOpen}
+        />
+        {createPortal(
+          modalOpen && <Modal setModalOpen={setModalOpen} />,
+          document.body
+        )}
         <ElementBox cssPropertyValue={cssPropertyValue} figure={figure} />
       </section>
     </article>

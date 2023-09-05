@@ -1,5 +1,10 @@
 import { FC, useState } from "react";
-import { cssPropertyType, FigureType } from "../../page/Tools";
+import {
+  cssPropertyType,
+  FigureType,
+  setModalOpenType,
+} from "../../page/Tools";
+import { transformDataToLocalStorage } from "../../utils/transformDataToLocalStorage";
 import FavoriteIcon from "../../assets/favorite-50.png";
 import FavoriteIconActive from "../../assets/favorite-active-50.png";
 import ListIcon from "../../assets/list-50.png";
@@ -9,14 +14,28 @@ import styles from "./styles.module.css";
 type FavoriteProps = {
   figure: FigureType;
   cssPropertyValue: cssPropertyType;
+  setModalOpen: setModalOpenType;
 };
 
-export const Favorite: FC<FavoriteProps> = ({ figure, cssPropertyValue }) => {
+export const Favorite: FC<FavoriteProps> = ({
+  figure,
+  cssPropertyValue,
+  setModalOpen,
+}) => {
   const [favoriteIcon, setFavoriteIcon] = useState(FavoriteIcon);
 
   const handleFavoriteClick = (e: React.MouseEvent<HTMLElement>) => {
-    const stringifyValue = JSON.stringify([figure, ...cssPropertyValue]);
-    window.localStorage.setItem(stringifyValue, stringifyValue);
+    const figureKey =
+      figure + " " + new Date().toLocaleString("ru-RU", { timeZone: "UTC" });
+
+    const transformedValue = transformDataToLocalStorage(cssPropertyValue);
+
+    const stringifyValue = JSON.stringify([
+      { propertyName: "Figure", value: figure },
+      ...transformedValue,
+    ]);
+
+    window.localStorage.setItem(figureKey, stringifyValue);
   };
 
   const handleFavoriteFocus = (e: React.MouseEvent<HTMLDivElement>) => {
@@ -43,7 +62,7 @@ export const Favorite: FC<FavoriteProps> = ({ figure, cssPropertyValue }) => {
           className={styles.item_icon}
           src={ListIcon}
           alt="List"
-          /*  onClick={handleChange} */
+          onClick={() => setModalOpen((prev) => !prev)}
         />
       </div>
     </div>

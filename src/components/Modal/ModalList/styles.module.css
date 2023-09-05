@@ -1,0 +1,23 @@
+.list_container {
+  position: relative;
+  top: 25%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin: 0.5rem;
+  cursor: pointer;
+}
+.list_key {
+  margin: 1rem;
+}
+.list_container:hover {
+  background-color: aquamarine;
+}
+
+.list_number {
+  margin-left: 1rem;
+}
+.list_value {
+  margin-right: 1rem;
+}
