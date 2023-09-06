@@ -2,15 +2,25 @@ import { FC } from "react";
 import { ModalList } from "./ModalList";
 import { useImperativeDisableScroll } from "../../hooks/useImperativeDisableScroll";
 import { useLocalStorageCustom } from "../../hooks/useLocalStorageCustom";
-import { setModalOpenType } from "../../page/Tools";
+import {
+  SetModalOpenType,
+  SetFigureType,
+  SetPropertyValueType,
+} from "../../page/Tools";
 
 import styles from "./styles.module.css";
 
 type ModalType = {
-  setModalOpen: setModalOpenType;
+  setModalOpen: SetModalOpenType;
+  setFigure: SetFigureType;
+  setCssPropertyValue: SetPropertyValueType;
 };
 
-export const Modal: FC<ModalType> = ({ setModalOpen }) => {
+export const Modal: FC<ModalType> = ({
+  setModalOpen,
+  setFigure,
+  setCssPropertyValue,
+}) => {
   const body = document.querySelector("body");
   useImperativeDisableScroll(body, true);
 
@@ -24,7 +34,16 @@ export const Modal: FC<ModalType> = ({ setModalOpen }) => {
       ></div>
       <div className={styles.modal_content}>
         {cssList.map((elem, idx) => {
-          return <ModalList elem={elem} idx={idx + 1} key={elem[0]} />;
+          return (
+            <ModalList
+              key={elem[0] as string}
+              elem={elem}
+              idx={idx + 1}
+              setFigure={setFigure}
+              setCssPropertyValue={setCssPropertyValue}
+              setModalOpen={setModalOpen}
+            />
+          );
         })}
       </div>
     </div>

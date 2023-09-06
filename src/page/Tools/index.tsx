@@ -22,7 +22,7 @@ export type cssPropertyType = typeof cssProperty;
 
 export type OnePropertyValueType = cssPropertyType[number];
 
-type SetPropertyValueType = React.Dispatch<
+export type SetPropertyValueType = React.Dispatch<
   React.SetStateAction<cssPropertyType>
 >;
 
@@ -42,7 +42,7 @@ export type ToolsProps = {
 };
 export type FigureType = "Pentagon" | "Polygon" | "Triangle" | "Square";
 export type SetFigureType = React.Dispatch<React.SetStateAction<FigureType>>;
-export type setModalOpenType = React.Dispatch<React.SetStateAction<boolean>>;
+export type SetModalOpenType = React.Dispatch<React.SetStateAction<boolean>>;
 
 export const Tools: FC = () => {
   const [cssPropertyValue, setCssPropertyValue] =
@@ -200,7 +200,13 @@ export const Tools: FC = () => {
           setModalOpen={setModalOpen}
         />
         {createPortal(
-          modalOpen && <Modal setModalOpen={setModalOpen} />,
+          modalOpen && (
+            <Modal
+              setModalOpen={setModalOpen}
+              setFigure={setFigure}
+              setCssPropertyValue={setCssPropertyValue}
+            />
+          ),
           document.body
         )}
         <ElementBox cssPropertyValue={cssPropertyValue} figure={figure} />

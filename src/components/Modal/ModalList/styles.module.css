@@ -1,6 +1,4 @@
 .list_container {
-  position: relative;
-  top: 25%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -10,6 +8,7 @@
 }
 .list_key {
   margin: 1rem;
+  width: 20%;
 }
 .list_container:hover {
   background-color: aquamarine;
@@ -17,7 +16,24 @@
 
 .list_number {
   margin-left: 1rem;
+  width: 10%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .list_value {
   margin-right: 1rem;
+  width: 70%;
+}
+
+@media screen and (max-width: 910px) {
+  .list_container {
+    top: 10%;
+  }
+}
+
+@media screen and (max-width: 730px) {
+  .list_container {
+    top: 25%;
+  }
 }

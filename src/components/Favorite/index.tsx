@@ -2,7 +2,7 @@ import { FC, useState } from "react";
 import {
   cssPropertyType,
   FigureType,
-  setModalOpenType,
+  SetModalOpenType,
 } from "../../page/Tools";
 import { transformDataToLocalStorage } from "../../utils/transformDataToLocalStorage";
 import FavoriteIcon from "../../assets/favorite-50.png";
@@ -14,7 +14,7 @@ import styles from "./styles.module.css";
 type FavoriteProps = {
   figure: FigureType;
   cssPropertyValue: cssPropertyType;
-  setModalOpen: setModalOpenType;
+  setModalOpen: SetModalOpenType;
 };
 
 export const Favorite: FC<FavoriteProps> = ({
@@ -24,7 +24,7 @@ export const Favorite: FC<FavoriteProps> = ({
 }) => {
   const [favoriteIcon, setFavoriteIcon] = useState(FavoriteIcon);
 
-  const handleFavoriteClick = (e: React.MouseEvent<HTMLElement>) => {
+  const handleFavoriteClick = () => {
     const figureKey =
       figure + " " + new Date().toLocaleString("ru-RU", { timeZone: "UTC" });
 

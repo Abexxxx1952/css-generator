@@ -48,7 +48,9 @@ export const RangeSlider: FC<ToolsProps> = ({
           type="range"
           min={customProperty ? customProperty.min : allProperty[idx].min}
           max={customProperty ? customProperty.max : allProperty[idx].max}
-          value={customProperty ? customProperty.value : allProperty[idx].value}
+          value={
+            customProperty ? customProperty.value : allProperty[idx].value ?? ""
+          }
           step={customProperty ? customProperty.step : allProperty[idx].step}
           onInput={setOwnPropertyValue ? setOwnPropertyValue : handleChange}
         />

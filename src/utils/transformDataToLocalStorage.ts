@@ -1,13 +1,21 @@
-import { cssPropertyType } from "../page/Tools";
+import { cssPropertyType, OnePropertyValueType } from "../page/Tools";
+export type transformDataToLocalStorageType = ReturnType<
+  typeof transformDataToLocalStorage
+>;
 
 export const transformDataToLocalStorage = (allProperty: cssPropertyType) => {
-  const transformedDate = allProperty.map((elem) => {
-    if (elem.propertyName === "Outline") {
-      return { propertyName: elem.propertyName, status: elem.status };
+  const transformedDate: Array<any> = [];
+  allProperty.forEach((elem) => {
+    if (elem.propertyName === "Outline" && elem.active === true) {
+      const obj = {
+        propertyName: elem.propertyName,
+        status: elem.status,
+      };
+      transformedDate.push(obj);
     }
 
-    if (elem.propertyName === "Background Gradient") {
-      return {
+    if (elem.propertyName === "Background Gradient" && elem.active === true) {
+      const obj = {
         propertyName: elem.propertyName,
         orientation: elem.orientation,
         degree: elem.degree?.value,
@@ -29,9 +37,13 @@ export const transformDataToLocalStorage = (allProperty: cssPropertyType) => {
           },
         },
       };
-    }
 
-    return { propertyName: elem.propertyName, value: elem.value };
+      transformedDate.push(obj);
+    }
+    if (elem.active === true) {
+      const obj = { propertyName: elem.propertyName, value: elem.value };
+      transformedDate.push(obj);
+    }
   });
 
   return transformedDate;

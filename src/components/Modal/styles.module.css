@@ -19,13 +19,13 @@
 .modal_content {
   display: flex;
   align-items: center;
-  justify-content: center;
+
   flex-direction: column;
   position: fixed;
   top: 50%;
   left: 50%;
-  width: 800px;
-  height: 500px;
+  width: 80%;
+  height: 60%;
   overflow-y: auto;
   overflow-x: hidden;
   transform: translate(-50%, -50%);
@@ -33,22 +33,4 @@
   border-radius: 2rem;
   z-index: 20;
   box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.342);
-}
-
-@media screen and (max-width: 910px) {
-  .modal_content {
-    width: 700px;
-  }
-}
-
-@media screen and (max-width: 730px) {
-  .modal_content {
-    width: 600px;
-  }
-}
-
-@media screen and (max-height: 440px) {
-  .modal_content {
-    height: 400px;
-  }
 }
