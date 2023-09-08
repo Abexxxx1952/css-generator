@@ -3,6 +3,7 @@ export const dataFromLocalStorageToString = (elem: Array<any>) => {
   [...(elem[1] as Array<any>)].forEach((elem) => {
     if (elem.propertyName === "Outline") {
       listValue += `${elem.propertyName}=${elem.status} `;
+      return;
     }
 
     if (elem.propertyName === "Background Gradient") {
@@ -17,6 +18,7 @@ export const dataFromLocalStorageToString = (elem: Array<any>) => {
          b: ${elem.secondColor?.rgb.b},
          a: ${elem.secondColor?.rgb.a},
        } `;
+      return;
     }
 
     listValue += `${elem.propertyName}=${elem.value} `;

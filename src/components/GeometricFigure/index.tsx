@@ -1,5 +1,10 @@
 import { FC } from "react";
-import { SetFigureType, FigureType } from "../../page/Tools";
+import { useSearchParams } from "react-router-dom";
+import { SetFigureType, FigureType, cssPropertyType } from "../../page/Tools";
+import {
+  transformDataToPath,
+  transformDataToPathType,
+} from "../../utils/transformDataToPath";
 import Pentagon from "../../assets/pentagon-48.png";
 import Polygon from "../../assets/polygon-50.png";
 import Square from "../../assets/square-50.png";
@@ -8,10 +13,23 @@ import Triangle from "../../assets/triangle-48.png";
 import styles from "./styles.module.css";
 type GeometricFigureProps = {
   setFigure: SetFigureType;
+  figure: FigureType;
+  cssPropertyValue: cssPropertyType;
 };
 
-export const GeometricFigure: FC<GeometricFigureProps> = ({ setFigure }) => {
+export const GeometricFigure: FC<GeometricFigureProps> = ({
+  setFigure,
+  figure,
+  cssPropertyValue,
+}) => {
+  const [_, setSearchParams] = useSearchParams();
   const handleChange = (e: React.MouseEvent<HTMLDivElement>) => {
+    const dataToPath: transformDataToPathType = transformDataToPath(
+      figure,
+      cssPropertyValue
+    );
+    setSearchParams(dataToPath);
+
     setFigure(e.currentTarget.dataset.figure as FigureType);
   };
 

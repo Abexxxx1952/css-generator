@@ -1,16 +1,22 @@
 import { FC } from "react";
-
+import { useSearchParams } from "react-router-dom";
 import { ToolsProps, OnePropertyValueType } from "../../page/Tools";
 import { CHECKBOX } from "../../constants/constants";
+import {
+  transformDataToPath,
+  transformDataToPathType,
+} from "../../utils/transformDataToPath";
 import styles from "./styles.module.css";
 
 export const CheckBox: FC<ToolsProps> = ({
   idx,
+  figure,
   setPropertyValue,
   allProperty,
 }) => {
+  const [_, setSearchParams] = useSearchParams();
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setPropertyValue([
+    const property = [
       ...allProperty.slice(0, idx),
       {
         propertyName: allProperty[idx].propertyName,
@@ -19,7 +25,15 @@ export const CheckBox: FC<ToolsProps> = ({
         active: true,
       } as OnePropertyValueType,
       ...allProperty.slice(idx + 1),
-    ]);
+    ];
+
+    const dataToPath: transformDataToPathType = transformDataToPath(
+      figure,
+      property
+    );
+
+    setSearchParams(dataToPath);
+    setPropertyValue(property);
   };
 
   return (

@@ -29,7 +29,6 @@ export const DropDown: FC<DropDownProps> = ({
     setDropdownState(!dropdownState);
   };
   const handleSetDropdownValue = (value: string) => {
-    console.log(value);
     handleChange(value);
     setDropdownState(!dropdownState);
   };

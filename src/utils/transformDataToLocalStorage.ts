@@ -1,10 +1,15 @@
-import { cssPropertyType, OnePropertyValueType } from "../page/Tools";
+import { cssPropertyType, FigureType } from "../page/Tools";
 export type transformDataToLocalStorageType = ReturnType<
   typeof transformDataToLocalStorage
 >;
 
-export const transformDataToLocalStorage = (allProperty: cssPropertyType) => {
-  const transformedDate: Array<any> = [];
+export const transformDataToLocalStorage = (
+  figure: FigureType,
+  allProperty: cssPropertyType
+) => {
+  const transformedDate: Array<any> = [
+    { propertyName: "Figure", value: figure },
+  ];
   allProperty.forEach((elem) => {
     if (elem.propertyName === "Outline" && elem.active === true) {
       const obj = {
@@ -12,6 +17,7 @@ export const transformDataToLocalStorage = (allProperty: cssPropertyType) => {
         status: elem.status,
       };
       transformedDate.push(obj);
+      return;
     }
 
     if (elem.propertyName === "Background Gradient" && elem.active === true) {
@@ -39,6 +45,7 @@ export const transformDataToLocalStorage = (allProperty: cssPropertyType) => {
       };
 
       transformedDate.push(obj);
+      return;
     }
     if (elem.active === true) {
       const obj = { propertyName: elem.propertyName, value: elem.value };

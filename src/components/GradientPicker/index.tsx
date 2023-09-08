@@ -1,10 +1,15 @@
 import { FC } from "react";
+import { useSearchParams } from "react-router-dom";
 import { DropDown } from "./DropDown";
 import { RangeSlider } from "../RangeSlider";
 import { HuePicker, ColorResult, AlphaPicker } from "react-color";
 
 import { ToolsProps, OnePropertyValueType } from "../../page/Tools";
 import { GRADIENTPICKER } from "../../constants/constants";
+import {
+  transformDataToPath,
+  transformDataToPathType,
+} from "../../utils/transformDataToPath";
 import { useMediaQuery } from "../../hooks/useMediaQuery";
 import { setActiveToFalse } from "../../utils/setActiveToFalse";
 
@@ -12,6 +17,7 @@ import styles from "./styles.module.css";
 
 export const GradientPicker: FC<ToolsProps> = ({
   idx,
+  figure,
   setPropertyValue,
   allProperty,
 }) => {
@@ -20,13 +26,12 @@ export const GradientPicker: FC<ToolsProps> = ({
     { value: "radial-gradient", label: "Radial-gradient" },
     { value: "conic-gradient", label: "Conic-gradient" },
   ];
-
+  const [_, setSearchParams] = useSearchParams();
   /* ----------------------DropDown Handler---------------------- */
 
   const OrientationChangeHandler = (value: string) => {
     setActiveToFalse(allProperty, "Box Color");
-
-    setPropertyValue([
+    const property = [
       ...allProperty.slice(0, idx),
       {
         propertyName: allProperty[idx].propertyName,
@@ -40,12 +45,19 @@ export const GradientPicker: FC<ToolsProps> = ({
         active: true,
       } as OnePropertyValueType,
       ...allProperty.slice(idx + 1),
-    ]);
+    ];
+
+    const dataToPath: transformDataToPathType = transformDataToPath(
+      figure,
+      property
+    );
+    setSearchParams(dataToPath);
+    setPropertyValue(property);
   };
   /* ----------------------RangeSlider Handler(degree)---------------------- */
   const DegreeChangeHandler = (e: React.FormEvent<HTMLInputElement>) => {
     setActiveToFalse(allProperty, "Box Color");
-    setPropertyValue([
+    const property = [
       ...allProperty.slice(0, idx),
       {
         propertyName: allProperty[idx].propertyName,
@@ -65,12 +77,19 @@ export const GradientPicker: FC<ToolsProps> = ({
         active: true,
       } as OnePropertyValueType,
       ...allProperty.slice(idx + 1),
-    ]);
+    ];
+    const dataToPath: transformDataToPathType = transformDataToPath(
+      figure,
+      property
+    );
+    console.log("degree", dataToPath);
+    setSearchParams(dataToPath);
+    setPropertyValue(property);
   };
   /* ----------------------RangeSlider Handler(position)---------------------- */
   const PositionChangeHandler = (e: React.FormEvent<HTMLInputElement>) => {
     setActiveToFalse(allProperty, "Box Color");
-    setPropertyValue([
+    const property = [
       ...allProperty.slice(0, idx),
       {
         propertyName: allProperty[idx].propertyName,
@@ -90,13 +109,19 @@ export const GradientPicker: FC<ToolsProps> = ({
         active: true,
       } as OnePropertyValueType,
       ...allProperty.slice(idx + 1),
-    ]);
+    ];
+    const dataToPath: transformDataToPathType = transformDataToPath(
+      figure,
+      property
+    );
+    setSearchParams(dataToPath);
+    setPropertyValue(property);
   };
 
   /* ----------------------First HuePicker Handler---------------------- */
   const HueFirstColorChangeHandler = (color: ColorResult) => {
     setActiveToFalse(allProperty, "Box Color");
-    setPropertyValue([
+    const property = [
       ...allProperty.slice(0, idx),
       {
         propertyName: allProperty[idx].propertyName,
@@ -124,12 +149,18 @@ export const GradientPicker: FC<ToolsProps> = ({
         active: true,
       } as OnePropertyValueType,
       ...allProperty.slice(idx + 1),
-    ]);
+    ];
+    const dataToPath: transformDataToPathType = transformDataToPath(
+      figure,
+      property
+    );
+    setSearchParams(dataToPath);
+    setPropertyValue(property);
   };
   /* ----------------------First AlphaPicker Handler---------------------- */
   const AlphaFirstColorChangeHandler = (color: ColorResult) => {
     setActiveToFalse(allProperty, "Box Color");
-    setPropertyValue([
+    const property = [
       ...allProperty.slice(0, idx),
       {
         propertyName: allProperty[idx].propertyName,
@@ -157,12 +188,18 @@ export const GradientPicker: FC<ToolsProps> = ({
         active: true,
       } as OnePropertyValueType,
       ...allProperty.slice(idx + 1),
-    ]);
+    ];
+    const dataToPath: transformDataToPathType = transformDataToPath(
+      figure,
+      property
+    );
+    setSearchParams(dataToPath);
+    setPropertyValue(property);
   };
   /* ----------------------Second HuePicker Handler---------------------- */
   const HueSecondColorChangeHandler = (color: ColorResult) => {
     setActiveToFalse(allProperty, "Box Color");
-    setPropertyValue([
+    const property = [
       ...allProperty.slice(0, idx),
       {
         propertyName: allProperty[idx].propertyName,
@@ -189,12 +226,18 @@ export const GradientPicker: FC<ToolsProps> = ({
         active: true,
       } as OnePropertyValueType,
       ...allProperty.slice(idx + 1),
-    ]);
+    ];
+    const dataToPath: transformDataToPathType = transformDataToPath(
+      figure,
+      property
+    );
+    setSearchParams(dataToPath);
+    setPropertyValue(property);
   };
   /* ----------------------Second AlphaPicker Handler---------------------- */
   const AlphaSecondColorChangeHandler = (color: ColorResult) => {
     setActiveToFalse(allProperty, "Box Color");
-    setPropertyValue([
+    const property = [
       ...allProperty.slice(0, idx),
       {
         propertyName: allProperty[idx].propertyName,
@@ -221,7 +264,13 @@ export const GradientPicker: FC<ToolsProps> = ({
         active: true,
       } as OnePropertyValueType,
       ...allProperty.slice(idx + 1),
-    ]);
+    ];
+    const dataToPath: transformDataToPathType = transformDataToPath(
+      figure,
+      property
+    );
+    setSearchParams(dataToPath);
+    setPropertyValue(property);
   };
 
   const mutch1300: boolean = useMediaQuery("(max-width: 1300px)");
@@ -250,6 +299,7 @@ export const GradientPicker: FC<ToolsProps> = ({
       <div className={styles.rangeSlider}>
         <RangeSlider
           idx={idx}
+          figure={figure}
           setPropertyValue={setPropertyValue}
           allProperty={allProperty}
           setOwnPropertyValue={DegreeChangeHandler}
@@ -260,6 +310,7 @@ export const GradientPicker: FC<ToolsProps> = ({
       <div className={styles.rangeSlider}>
         <RangeSlider
           idx={idx}
+          figure={figure}
           setPropertyValue={setPropertyValue}
           allProperty={allProperty}
           setOwnPropertyValue={PositionChangeHandler}

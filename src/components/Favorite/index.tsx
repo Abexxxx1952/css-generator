@@ -28,12 +28,12 @@ export const Favorite: FC<FavoriteProps> = ({
     const figureKey =
       figure + " " + new Date().toLocaleString("ru-RU", { timeZone: "UTC" });
 
-    const transformedValue = transformDataToLocalStorage(cssPropertyValue);
+    const transformedValue = transformDataToLocalStorage(
+      figure,
+      cssPropertyValue
+    );
 
-    const stringifyValue = JSON.stringify([
-      { propertyName: "Figure", value: figure },
-      ...transformedValue,
-    ]);
+    const stringifyValue = JSON.stringify(transformedValue);
 
     window.localStorage.setItem(figureKey, stringifyValue);
   };

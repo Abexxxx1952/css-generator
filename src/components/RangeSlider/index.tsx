@@ -1,18 +1,26 @@
 import React, { FC } from "react";
-
+import { useSearchParams } from "react-router-dom";
 import { ToolsProps, OnePropertyValueType } from "../../page/Tools";
+import {
+  transformDataToPath,
+  transformDataToPathType,
+} from "../../utils/transformDataToPath";
 import { RANGESLIDER } from "../../constants/constants";
 import styles from "./styles.module.css";
 
 export const RangeSlider: FC<ToolsProps> = ({
   idx,
+  figure,
   setPropertyValue,
   allProperty,
   setOwnPropertyValue,
   customProperty,
 }) => {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const [_, setSearchParams] = useSearchParams();
+
   const handleChange = (e: React.FormEvent<HTMLInputElement>) => {
-    setPropertyValue([
+    const property = [
       ...allProperty.slice(0, idx),
       {
         propertyName: allProperty[idx].propertyName,
@@ -24,7 +32,13 @@ export const RangeSlider: FC<ToolsProps> = ({
         active: true,
       } as OnePropertyValueType,
       ...allProperty.slice(idx + 1),
-    ]);
+    ];
+    const dataToPath: transformDataToPathType = transformDataToPath(
+      figure,
+      property
+    );
+    setSearchParams(dataToPath);
+    setPropertyValue(property);
   };
 
   return (
@@ -48,9 +62,7 @@ export const RangeSlider: FC<ToolsProps> = ({
           type="range"
           min={customProperty ? customProperty.min : allProperty[idx].min}
           max={customProperty ? customProperty.max : allProperty[idx].max}
-          value={
-            customProperty ? customProperty.value : allProperty[idx].value ?? ""
-          }
+          value={customProperty ? customProperty.value : allProperty[idx].value}
           step={customProperty ? customProperty.step : allProperty[idx].step}
           onInput={setOwnPropertyValue ? setOwnPropertyValue : handleChange}
         />

@@ -31,7 +31,7 @@ export const ModalList: FC<ModalListType> = ({
     const { figure, cssProperty } = transformDataFromLocalStorage(
       elem[0] as string
     );
-    console.log(cssProperty);
+
     setFigure(figure.value);
     setCssPropertyValue(cssProperty);
     setModalOpen(false);
