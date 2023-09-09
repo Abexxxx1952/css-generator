@@ -38,15 +38,15 @@ export const Favorite: FC<FavoriteProps> = ({
     window.localStorage.setItem(figureKey, stringifyValue);
   };
 
-  const handleFavoriteFocus = (e: React.MouseEvent<HTMLDivElement>) => {
+  const handleFavoriteFocus = () => {
     setFavoriteIcon(FavoriteIconActive);
   };
-  const handleFavoriteBlur = (e: React.MouseEvent<HTMLDivElement>) => {
+  const handleFavoriteBlur = () => {
     setFavoriteIcon(FavoriteIcon);
   };
 
   return (
-    <div className={styles.favoriteContainer}>
+    <div className={styles.favorite_container}>
       <div className={styles.item}>
         <img
           className={styles.item_icon}

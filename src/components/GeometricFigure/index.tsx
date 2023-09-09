@@ -13,19 +13,20 @@ import Triangle from "../../assets/triangle-48.png";
 import styles from "./styles.module.css";
 type GeometricFigureProps = {
   setFigure: SetFigureType;
-  figure: FigureType;
+
   cssPropertyValue: cssPropertyType;
 };
 
 export const GeometricFigure: FC<GeometricFigureProps> = ({
   setFigure,
-  figure,
+
   cssPropertyValue,
 }) => {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [_, setSearchParams] = useSearchParams();
   const handleChange = (e: React.MouseEvent<HTMLDivElement>) => {
     const dataToPath: transformDataToPathType = transformDataToPath(
-      figure,
+      e.currentTarget.dataset.figure as FigureType,
       cssPropertyValue
     );
     setSearchParams(dataToPath);
@@ -34,8 +35,8 @@ export const GeometricFigure: FC<GeometricFigureProps> = ({
   };
 
   return (
-    <div className={styles.geometricContainer}>
-      <div className={styles.figureContainer}>
+    <div className={styles.geometric_container}>
+      <div className={styles.figure_container}>
         <img
           className={styles.figure}
           src={Pentagon}
@@ -44,7 +45,7 @@ export const GeometricFigure: FC<GeometricFigureProps> = ({
           onClick={handleChange}
         />
       </div>
-      <div className={styles.figureContainer}>
+      <div className={styles.figure_container}>
         <img
           className={styles.figure}
           src={Polygon}
@@ -54,7 +55,7 @@ export const GeometricFigure: FC<GeometricFigureProps> = ({
         />
       </div>
 
-      <div className={styles.figureContainer}>
+      <div className={styles.figure_container}>
         <img
           className={styles.figure}
           src={Square}
@@ -64,7 +65,7 @@ export const GeometricFigure: FC<GeometricFigureProps> = ({
         />
       </div>
 
-      <div className={styles.figureContainer}>
+      <div className={styles.figure_container}>
         <img
           className={styles.figure}
           src={Triangle}

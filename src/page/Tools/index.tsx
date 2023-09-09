@@ -1,14 +1,16 @@
-import React, { FC, useState, useEffect } from "react";
+import React, { FC, useState } from "react";
 import { createPortal } from "react-dom";
 import { useSearchParams } from "react-router-dom";
 import { GeometricFigure } from "../../components/GeometricFigure";
 import { Favorite } from "../../components/Favorite";
+import { RefreshButton } from "../../components/RefreshButton";
 import { Modal } from "../../components/Modal";
 import { RangeSlider } from "../../components/RangeSlider";
 import { ColorPicker } from "../../components/ColorPicker";
 import { CheckBox } from "../../components/CheckBox";
 import { GradientPicker } from "../../components/GradientPicker";
 import { ElementBox } from "../../components/ElementBox";
+
 import { transformDataFromPath } from "../../utils/transformDataFromPath";
 import {
   cssProperty,
@@ -52,14 +54,14 @@ export const Tools: FC = () => {
     useState<cssPropertyType>(cssProperty);
   const [figure, setFigure] = useState<FigureType>("Square");
   const [modalOpen, setModalOpen] = useState(false);
-  const [searchParams] = useSearchParams();
-  /*   useEffect(() => {
-    const searchParamsObject = Object.fromEntries(searchParams);
-    const { figure, cssProperty } = transformDataFromPath(searchParamsObject);
+  const [searchParams, setSearchParams] = useSearchParams();
+
+  window.onload = () => {
+    const { figure, cssProperty } = transformDataFromPath(searchParams);
     setFigure(figure);
     setCssPropertyValue(cssProperty);
-    console.log(searchParams);
-  }, []); */
+  };
+
   return (
     <article className={styles.container}>
       <section className={styles.tools_container}>
@@ -214,13 +216,17 @@ export const Tools: FC = () => {
       <section className={styles.element_container}>
         <GeometricFigure
           setFigure={setFigure}
-          figure={figure}
           cssPropertyValue={cssPropertyValue}
         />
         <Favorite
           figure={figure}
           cssPropertyValue={cssPropertyValue}
           setModalOpen={setModalOpen}
+        />
+        <RefreshButton
+          setFigure={setFigure}
+          setCssPropertyValue={setCssPropertyValue}
+          setSearchParams={setSearchParams}
         />
         {createPortal(
           modalOpen && (

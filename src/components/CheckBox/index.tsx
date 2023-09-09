@@ -14,6 +14,7 @@ export const CheckBox: FC<ToolsProps> = ({
   setPropertyValue,
   allProperty,
 }) => {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [_, setSearchParams] = useSearchParams();
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const property = [
@@ -42,7 +43,7 @@ export const CheckBox: FC<ToolsProps> = ({
       <div className={styles.roundedOne}>
         <input
           type="checkbox"
-          value="None"
+          checked={!!allProperty[idx].status}
           id="roundedOne"
           name="check"
           onChange={handleChange}

@@ -26,6 +26,7 @@ export const GradientPicker: FC<ToolsProps> = ({
     { value: "radial-gradient", label: "Radial-gradient" },
     { value: "conic-gradient", label: "Conic-gradient" },
   ];
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [_, setSearchParams] = useSearchParams();
   /* ----------------------DropDown Handler---------------------- */
 
@@ -46,13 +47,12 @@ export const GradientPicker: FC<ToolsProps> = ({
       } as OnePropertyValueType,
       ...allProperty.slice(idx + 1),
     ];
-
+    setPropertyValue(property);
     const dataToPath: transformDataToPathType = transformDataToPath(
       figure,
       property
     );
     setSearchParams(dataToPath);
-    setPropertyValue(property);
   };
   /* ----------------------RangeSlider Handler(degree)---------------------- */
   const DegreeChangeHandler = (e: React.FormEvent<HTMLInputElement>) => {
@@ -78,13 +78,13 @@ export const GradientPicker: FC<ToolsProps> = ({
       } as OnePropertyValueType,
       ...allProperty.slice(idx + 1),
     ];
+    setPropertyValue(property);
     const dataToPath: transformDataToPathType = transformDataToPath(
       figure,
       property
     );
-    console.log("degree", dataToPath);
+
     setSearchParams(dataToPath);
-    setPropertyValue(property);
   };
   /* ----------------------RangeSlider Handler(position)---------------------- */
   const PositionChangeHandler = (e: React.FormEvent<HTMLInputElement>) => {

@@ -17,6 +17,7 @@ export const ColorPicker: FC<ToolsProps> = ({
   setPropertyValue,
   allProperty,
 }) => {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [_, setSearchParams] = useSearchParams();
   const handleChange = (color: string) => {
     if (allProperty[idx].propertyName === "Box Color") {
