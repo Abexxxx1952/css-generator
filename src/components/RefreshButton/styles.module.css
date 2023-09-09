@@ -8,7 +8,7 @@
   height: 25px;
   background-color: rgb(238, 232, 243);
   top: 7%;
-  left: 36%;
+  left: 30%;
   padding: 3px;
   border: solid 1px;
   box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.342);
@@ -22,10 +22,30 @@
 .button_container:hover {
   background-color: rgb(89, 185, 192);
 }
+@media screen and (max-width: 2150px) {
+  .button_container {
+    left: 30%;
+  }
+}
+@media screen and (max-width: 1950px) {
+  .button_container {
+    left: 31%;
+  }
+}
+@media screen and (max-width: 1850px) {
+  .button_container {
+    left: 34%;
+  }
+}
+@media screen and (max-width: 1700px) {
+  .button_container {
+    left: 35%;
+  }
+}
 
 @media screen and (max-width: 1600px) {
   .button_container {
-    left: 36%;
+    left: 37%;
   }
 }
 
