@@ -13,13 +13,11 @@ import Triangle from "../../assets/triangle-48.png";
 import styles from "./styles.module.css";
 type GeometricFigureProps = {
   setFigure: SetFigureType;
-
   cssPropertyValue: cssPropertyType;
 };
 
 export const GeometricFigure: FC<GeometricFigureProps> = ({
   setFigure,
-
   cssPropertyValue,
 }) => {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars

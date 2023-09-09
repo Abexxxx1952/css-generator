@@ -8,7 +8,7 @@
   height: 25px;
   background-color: rgb(238, 232, 243);
   top: 7%;
-  left: 40%;
+  left: 36%;
   padding: 3px;
   border: solid 1px;
   box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.342);
@@ -21,4 +21,113 @@
 }
 .button_container:hover {
   background-color: rgb(89, 185, 192);
+}
+
+@media screen and (max-width: 1600px) {
+  .button_container {
+    left: 36%;
+  }
+}
+
+@media screen and (max-width: 1550px) {
+  .button_container {
+    left: 38%;
+  }
+}
+@media screen and (max-width: 1400px) {
+  .button_container {
+    left: 39%;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .button_container {
+    left: 40%;
+  }
+}
+
+@media screen and (max-width: 1050px) {
+  .button_container {
+    left: 41%;
+  }
+}
+@media screen and (max-width: 950px) {
+  .button_container {
+    left: 42%;
+  }
+}
+@media screen and (max-width: 850px) {
+  .button_container {
+    left: 43%;
+  }
+}
+@media screen and (max-width: 750px) {
+  .button_container {
+    left: 44%;
+  }
+}
+@media screen and (max-width: 700px) {
+  .button_container {
+    left: 45%;
+  }
+}
+@media screen and (max-width: 650px) {
+  .button_container {
+    left: 46%;
+  }
+}
+@media screen and (max-width: 600px) {
+  .button_container {
+    left: 47%;
+  }
+}
+@media screen and (max-height: 1300px) {
+  .button_container {
+    top: 4%;
+  }
+}
+@media screen and (max-height: 1200px) {
+  .button_container {
+    top: 4.5%;
+  }
+}
+@media screen and (max-height: 1100px) {
+  .button_container {
+    top: 5%;
+  }
+}
+@media screen and (max-height: 850px) {
+  .button_container {
+    top: 6%;
+  }
+}
+@media screen and (max-height: 610px) {
+  .button_container {
+    top: 8%;
+  }
+}
+@media screen and (max-height: 550px) {
+  .button_container {
+    top: 9%;
+  }
+}
+@media screen and (max-height: 490px) {
+  .button_container {
+    top: 10%;
+  }
+}
+@media screen and (max-height: 440px) {
+  .button_container {
+    top: 11%;
+  }
+}
+@media screen and (max-height: 400px) {
+  .button_container {
+    top: 12%;
+  }
+}
+@media screen and (max-height: 370px) {
+  .button_container {
+    top: 13%;
+  }
 }

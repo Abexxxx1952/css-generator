@@ -38,3 +38,69 @@
   border-top-right-radius: 30px;
   border-bottom-right-radius: 30px;
 }
+@media screen and (min-width: 1550px) {
+  .geometric_container {
+    left: 31%;
+  }
+}
+@media screen and (min-width: 1600px) {
+  .geometric_container {
+    left: 30%;
+  }
+}
+@media screen and (min-width: 1700px) {
+  .geometric_container {
+    left: 29%;
+  }
+}
+@media screen and (max-height: 1300px) {
+  .geometric_container {
+    top: 4%;
+  }
+}
+@media screen and (max-height: 1200px) {
+  .geometric_container {
+    top: 4.5%;
+  }
+}
+@media screen and (max-height: 1100px) {
+  .geometric_container {
+    top: 5%;
+  }
+}
+@media screen and (max-height: 850px) {
+  .geometric_container {
+    top: 6%;
+  }
+}
+
+@media screen and (max-height: 610px) {
+  .geometric_container {
+    top: 8%;
+  }
+}
+@media screen and (max-height: 550px) {
+  .geometric_container {
+    top: 9%;
+  }
+}
+@media screen and (max-height: 490px) {
+  .geometric_container {
+    top: 10%;
+  }
+}
+@media screen and (max-height: 440px) {
+  .geometric_container {
+    top: 11%;
+  }
+}
+@media screen and (max-height: 400px) {
+  .geometric_container {
+    top: 12%;
+  }
+}
+@media screen and (max-height: 370px) {
+  .geometric_container {
+    top: 13%;
+  }
+}

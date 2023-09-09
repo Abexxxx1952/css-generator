@@ -218,15 +218,16 @@ export const Tools: FC = () => {
           setFigure={setFigure}
           cssPropertyValue={cssPropertyValue}
         />
-        <Favorite
-          figure={figure}
-          cssPropertyValue={cssPropertyValue}
-          setModalOpen={setModalOpen}
-        />
+
         <RefreshButton
           setFigure={setFigure}
           setCssPropertyValue={setCssPropertyValue}
           setSearchParams={setSearchParams}
+        />
+        <Favorite
+          figure={figure}
+          cssPropertyValue={cssPropertyValue}
+          setModalOpen={setModalOpen}
         />
         {createPortal(
           modalOpen && (
