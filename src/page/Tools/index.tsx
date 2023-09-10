@@ -218,7 +218,6 @@ export const Tools: FC = () => {
           setFigure={setFigure}
           cssPropertyValue={cssPropertyValue}
         />
-
         <RefreshButton
           setFigure={setFigure}
           setCssPropertyValue={setCssPropertyValue}

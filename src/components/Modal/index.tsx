@@ -1,7 +1,7 @@
-import { FC } from "react";
+import { FC, useState } from "react";
 import { ModalList } from "./ModalList";
 import { useImperativeDisableScroll } from "../../hooks/useImperativeDisableScroll";
-import { useLocalStorageCustom } from "../../hooks/useLocalStorageCustom";
+import { localStorageCustom } from "../../utils/localStorageCustom";
 import {
   SetModalOpenType,
   SetFigureType,
@@ -23,8 +23,8 @@ export const Modal: FC<ModalType> = ({
 }) => {
   const body = document.querySelector("body");
   useImperativeDisableScroll(body, true);
-
-  const cssList = useLocalStorageCustom();
+  const css = localStorageCustom();
+  const [cssList, setCssList] = useState(css);
 
   return (
     <div className={styles.modal}>
@@ -42,6 +42,7 @@ export const Modal: FC<ModalType> = ({
               setFigure={setFigure}
               setCssPropertyValue={setCssPropertyValue}
               setModalOpen={setModalOpen}
+              setCssList={setCssList}
             />
           );
         })}

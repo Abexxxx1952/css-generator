@@ -7,8 +7,8 @@
   width: 85px;
   height: 25px;
   background-color: rgb(238, 232, 243);
-  top: 6%;
-  left: 32%;
+  top: calc(2.2rem + 3%);
+  left: calc(14rem + 15%);
   border: solid 1px;
   box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.342);
 }
@@ -38,74 +38,30 @@
   border-top-right-radius: 30px;
   border-bottom-right-radius: 30px;
 }
-@media screen and (min-width: 1550px) {
+
+@media screen and (max-width: 1000px) {
   .geometric_container {
-    left: 30%;
+    left: calc(10rem + 18%);
   }
 }
-@media screen and (min-width: 1600px) {
+@media screen and (max-width: 790px) {
   .geometric_container {
-    left: 29%;
+    left: calc(8rem + 23%);
   }
 }
-@media screen and (min-width: 1700px) {
+@media screen and (max-width: 740px) {
   .geometric_container {
-    left: 27.5%;
-  }
-}
-@media screen and (min-width: 1850px) {
-  .geometric_container {
-    left: 26%;
-  }
-}
-@media screen and (max-height: 1300px) {
-  .geometric_container {
-    top: 4%;
-  }
-}
-@media screen and (max-height: 1200px) {
-  .geometric_container {
-    top: 4.5%;
-  }
-}
-@media screen and (max-height: 1100px) {
-  .geometric_container {
-    top: 5%;
-  }
-}
-@media screen and (max-height: 850px) {
-  .geometric_container {
-    top: 6%;
+    left: calc(6rem + 24%);
   }
 }
 
-@media screen and (max-height: 610px) {
+@media screen and (min-height: 700px) {
   .geometric_container {
-    top: 8%;
+    top: calc(2rem + 2%);
   }
 }
-@media screen and (max-height: 550px) {
+@media screen and (min-height: 1200px) {
   .geometric_container {
-    top: 9%;
-  }
-}
-@media screen and (max-height: 490px) {
-  .geometric_container {
-    top: 10%;
-  }
-}
-@media screen and (max-height: 440px) {
-  .geometric_container {
-    top: 11%;
-  }
-}
-@media screen and (max-height: 400px) {
-  .geometric_container {
-    top: 12%;
-  }
-}
-@media screen and (max-height: 370px) {
-  .geometric_container {
-    top: 13%;
+    top: calc(1.5rem + 2%);
   }
 }

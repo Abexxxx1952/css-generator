@@ -1,12 +1,13 @@
-import { transformDataToLocalStorageType } from "../utils/transformDataToLocalStorage";
+import { transformDataToLocalStorageType } from "./transformDataToLocalStorage";
 
-export type useLocalStorageCustomType = ReturnType<
-  typeof useLocalStorageCustom
+type LocalStorageCustomReturnType = ReturnType<typeof localStorageCustom>;
+export type SetLocalStorageCustomType = React.Dispatch<
+  React.SetStateAction<LocalStorageCustomReturnType>
 >;
 
-export type useLocalStorageOneCustomType = useLocalStorageCustomType[number];
+export type LocalStorageOneCustomType = LocalStorageCustomReturnType[number];
 
-export const useLocalStorageCustom = () => {
+export const localStorageCustom = () => {
   const kayAndValueArr = [];
 
   for (let i = 0; i < localStorage.length; i++) {

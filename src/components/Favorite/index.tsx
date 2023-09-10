@@ -33,9 +33,12 @@ export const Favorite: FC<FavoriteProps> = ({
       cssPropertyValue
     );
 
-    const stringifyValue = JSON.stringify(transformedValue);
-
-    window.localStorage.setItem(figureKey, stringifyValue);
+    try {
+      const stringifyValue = JSON.stringify(transformedValue);
+      window.localStorage.setItem(figureKey, stringifyValue);
+    } catch (error) {
+      console.warn(`Error writing localStorage key “${figureKey}”:`, error);
+    }
   };
 
   const handleFavoriteFocus = () => {
